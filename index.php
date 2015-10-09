@@ -74,9 +74,9 @@ switch($page){
 					$filesToParse = GetSortedJamFileList();
 					
 					foreach ($filesToParse as $fileLoc) {
-						$data = urlencode(json_encode(json_decode(file_get_contents($fileLoc), true)));
+						$data = json_encode(json_decode(file_get_contents($fileLoc), true));
 						
-						print "jams.push(JSON.parse(unescape('$data')));\n";
+						print "jams.push(JSON.parse('$data'));\n";
 					}
 				?>
 
